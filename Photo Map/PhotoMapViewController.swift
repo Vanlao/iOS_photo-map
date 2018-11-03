@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, LocationsViewControllerDelegate {
+class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, LocationsViewControllerDelegate, MKMapViewDelegate {
     
 
     @IBOutlet weak var mapView: MKMapView!
@@ -21,7 +21,7 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667),
                                               MKCoordinateSpanMake(0.1, 0.1))
         mapView.setRegion(sfRegion, animated: false)
-        
+        mapView.delegate = self
         
         
         // Do any additional setup after loading the view.
@@ -65,7 +65,7 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         print("back to photomap")
     }
     
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let reuseID = "myAnnotationView"
         
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseID)
@@ -94,7 +94,7 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let position = segue.destination as? LocationsViewController
-        position?.delegate = self as? LocationsViewControllerDelegate
+        position?.delegate = self as LocationsViewControllerDelegate
     }
 
 }

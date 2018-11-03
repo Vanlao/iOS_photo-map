@@ -28,7 +28,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0l-Pf-4Kh">
                                 <rect key="frame" x="175" y="599" width="64" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="camera"/>
+                                <state key="normal" image="camera"/>
                                 <connections>
                                     <action selector="takePic:" destination="ghP-Ww-KKQ" eventType="touchUpInside" id="9M5-TI-Egn"/>
                                 </connections>
