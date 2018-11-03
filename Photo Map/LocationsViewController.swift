@@ -11,8 +11,7 @@ import UIKit
 // Protocol definition - top of LocationsViewController.swift
 protocol LocationsViewControllerDelegate : class {
     func locationsPickedLocation(controller: LocationsViewController, latitude: NSNumber, longitude: NSNumber)
-    func popToViewController(_ viewController: UIViewController,
-                             animated: Bool) -> [PhotoMapViewController]?
+    //func popToViewController(_ viewController: UIViewController,animated: Bool) -> [PhotoMapViewController]?
 }
 
 
@@ -33,6 +32,7 @@ class LocationsViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
+        //self.navigationController?.popToViewController(PhotoMapViewController, animated: nil)
     }
     
    
@@ -65,6 +65,8 @@ class LocationsViewController: UIViewController, UITableViewDelegate, UITableVie
         let lngString = "\(lng)"
 
         print(latString + " " + lngString)
+        self.delegate.locationsPickedLocation(controller: self, latitude: lat
+            , longitude: lng)
     }
     
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
